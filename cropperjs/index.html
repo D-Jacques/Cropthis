@@ -45,8 +45,19 @@
 
         <h2>Activer/Désactiver le Zoom</h2>
         <div class="button-box-dimensions">
-            <button id="button-vm1">Activer</button>
-            <button id="button-vm2">Désactiver</button>
+            <button id="button-zoom-on">Activer</button>
+            <button id="button-zoom-off">Désactiver</button>
+        </div>
+
+        <h2>Rotation</h2>
+        <div class="button-box-dimensions">
+            <button id="button-rotate-plus">45°</button>
+            <button id="button-rotate-minus">-45°</button>
+        </div>
+
+        <h2>Découper l'image</h2>
+        <div>
+            <button id="button-crop">Découper l'image</button>
         </div>
     </div>
 
@@ -54,6 +65,7 @@
         <span class="small-text">Ce site utilise cropperjs by fengyuanchen <a href="https://fengyuanchen.github.io/cropperjs/">Source</a></span>
     </footer>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="module" src="node_modules/cropperjs/dist/cropper.js"></script>
 <script src="index.js"></script>
 </html>

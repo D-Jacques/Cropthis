@@ -8,13 +8,16 @@ let button4 = document.querySelector("#button-4");
 let button3 = document.querySelector("#button-3");
 let buttonFree = document.querySelector("#button-libre");
 
+let buttonRotatePlus = document.querySelector("#button-rotate-plus");
+let buttonRotateMinus = document.querySelector("#button-rotate-minus");
+let fileExtension = ""
 /**
  * Initialisation d'un cropper au chargement d'une image
  */
 
 inputImg.addEventListener("change", function(){
     let file = inputImg.files[0];
-    let fileExtension = file['name'].split('.').pop();
+    fileExtension = file['name'].split('.').pop();
     let reader = new FileReader();
 
     reader.addEventListener('load', function(){
@@ -49,6 +52,14 @@ canvas.addEventListener('load', function(){
         cropperBox.setAspectRatio(NaN);
     });
 
+    buttonRotatePlus.addEventListener("click", function(){
+        cropperBox.rotate(45);
+    });
+
+    buttonRotateMinus.addEventListener("click", function(){
+        cropperBox.rotate(-45);
+    })
+
 })
 
 /**
@@ -78,7 +89,23 @@ buttonVM0.addEventListener("click", function(){
 })
 
 /**
- * Petite fonction car la ligne de code ça coute cher !!!
+ * Bouttons pour ajouter/enlever le zoom du cropper
+ */
+
+let buttonZoomOn = document.querySelector("#button-zoom-on");
+let buttonZoomOff = document.querySelector("#button-zoom-off");
+
+buttonZoomOn.addEventListener("click", function(){
+    setZoom(true);
+})
+
+buttonZoomOff.addEventListener("click", function(){
+    setZoom(false);
+})
+
+
+/**
+ * Petites fonctions car la ligne de code ça coute cher !!!
  */
 
 function setViewMode(viewMode){
@@ -90,3 +117,37 @@ function setViewMode(viewMode){
     });
     
 }
+
+function setZoom(zoomEnabled){
+    if(cropperBox)
+        cropperBox.destroy();
+
+    cropperBox = new Cropper(canvas,{
+        zoomOnWheel : zoomEnabled,
+    });
+}
+
+let buttonCrop = document.querySelector("#button-crop");
+
+buttonCrop.addEventListener("click", function(){
+
+    cropperBox.getCroppedCanvas({
+        width: 800,
+        height: 600
+    }).toBlob(function(blob){
+        const formData = new FormData();
+        formData.append('file', blob, 'fileupload.'+fileExtension);
+        $.ajax({
+            url: '/php/index.php',
+            type: 'POST',
+            data: formData,
+            cache : false,
+            processData: false,
+            contentType: false,
+            success() {                
+                console.log("OK");
+            }
+        });
+    });
+   
+})
