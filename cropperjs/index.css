@@ -1,10 +1,32 @@
+header{
+    width: 50%;
+}
+
+.space-bottom{
+    margin-bottom: 5%;
+}
+
 .small-text{
     font-size: 0.9rem;
+}
+
+.text-center{
+    text-align: center;
 }
 
 .center{
     margin-left: auto;
     margin-right: auto;
+}
+
+.input-div{
+    width: 50%;
+}
+
+.input-div label{
+    background-color: blue;
+    color: rgb(245, 133, 41);
+    border: 1px solid black;
 }
 
 .cropperbox{

@@ -10,16 +10,18 @@
 </head>
 <body>
 
-    <header>
-        <div class="center">
+    <header class="center text-center space-bottom">
+        <div>
             <h1>Bienvenue sur Crop this</h1>
             <p>ici vous pouvez découper et redimensionner vos images</p>
         </div>
     </header>
 
-    <label for="fileinput">Déposer votre image ici</label>
-    <input type="file" id="fileinput">
-    
+    <div class="input-div center">
+        <label for="fileinput">Déposer votre image ici</label>
+        <input type="file" id="fileinput">
+    </div>
+
     <div class="cropper-section">
         <div class="cropperbox center">
             <img src="" alt="" id="canvas">
@@ -68,4 +70,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="module" src="node_modules/cropperjs/dist/cropper.js"></script>
 <script src="index.js"></script>
+<script src="test.js"></script>
 </html>

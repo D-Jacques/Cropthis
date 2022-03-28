@@ -127,6 +127,11 @@ function setZoom(zoomEnabled){
     });
 }
 
+/** - Découpage de l'image avec le cropper
+ *  - Envoi de l'image découpée à un script via une requête AJAX
+ *  - Traitement en PHP dans le fichier php/index.php
+ */
+
 let buttonCrop = document.querySelector("#button-crop");
 
 buttonCrop.addEventListener("click", function(){
