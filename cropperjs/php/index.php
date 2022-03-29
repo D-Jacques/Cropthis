@@ -1,5 +1,4 @@
 <?php
-
     /**
      * Rien de bien compliqué ici, on récupére notre image et on la met dans le fichier img
      */
@@ -9,5 +8,7 @@
     $uploadFolder = '../img';
     $result = move_uploaded_file($fileUploaded, "$uploadFolder/$name");
 
-
+    // équivalent Symfony
+    // UploadedFile $fileUpload
+    // $fileUploaded->move($uploadFolder, $name)
 ?>
