@@ -13,12 +13,13 @@ header{
 }
 
 header h1{
-    margin-top: 0;
+    /* margin-top: 0; */
 }
 
 .flex-box{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    margin-right: 8%;
 }
 
 .bloc-scissor{
@@ -89,6 +90,8 @@ header h1{
 button{
     background-color: #151577;
     color: white;
+    border: none;
+    border-radius: 20px;
     width: 100px;
     height: 50px;
 }
