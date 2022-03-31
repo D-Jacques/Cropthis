@@ -71,22 +71,10 @@ let buttonVM2 = document.querySelector("#button-vm2");
 let buttonVM3 = document.querySelector("#button-vm3");
 let buttonVM0 = document.querySelector("#button-vm0");
 
-buttonVM1.addEventListener("click", function(){
-    setViewMode(1);
-})
-
-buttonVM2.addEventListener("click", function(){
-    setViewMode(2);
-})
-
-buttonVM3.addEventListener("click", function(){
-    setViewMode(3);
-
-})
-
-buttonVM0.addEventListener("click", function(){
-    setViewMode(NaN);
-})
+buttonVM1.addEventListener("click", setViewMode(1));
+buttonVM2.addEventListener("click", setViewMode(2));
+buttonVM3.addEventListener("click", setViewMode(3));
+buttonVM0.addEventListener("click", setViewMode(NaN));
 
 /**
  * Bouttons pour ajouter/enlever le zoom du cropper
@@ -95,13 +83,8 @@ buttonVM0.addEventListener("click", function(){
 let buttonZoomOn = document.querySelector("#button-zoom-on");
 let buttonZoomOff = document.querySelector("#button-zoom-off");
 
-buttonZoomOn.addEventListener("click", function(){
-    setZoom(true);
-})
-
-buttonZoomOff.addEventListener("click", function(){
-    setZoom(false);
-})
+buttonZoomOn.addEventListener("click", setZoom(true))
+buttonZoomOff.addEventListener("click", setZoom(false));
 
 
 /**
